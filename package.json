@@ -13,6 +13,8 @@
     "atom": ">=1.0.0 <2.0.0"
   },
   "dependencies": {
-    "firebase": "3.6.1"
+    "ot-text": "^1.0.1",
+    "sharedb": "1.0.0-beta.7",
+    "ws": "^2.2.2"
   }
 }
