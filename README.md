@@ -39,3 +39,4 @@ _prerequisites: node.js (v>=6.10.1)_
   - open existing or new file
   - toggle coeditor, `ctrl + shift + p` then type `toggle`, hit `coeditor: toggle`
   - check your Server console
+  - (Buggy) disconnect, `ctrl + shift + p` then type `disconnect`, hit `coeditor: disconnect`
