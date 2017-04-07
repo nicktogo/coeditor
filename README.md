@@ -31,8 +31,8 @@ _prerequisites: node.js (v>=6.10.1)_
   - `npm start`
 
 + Run package in Atom
-  - open `coeditor` folder in Atom
-  - change `address` in `coeditor.js` and save
+  - open `coeditor` folder in Atom
+  - change `address` in `coeditor.js` and save
   - link package to Atom
     - `cd coeditor`
     - `apm link`
