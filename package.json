@@ -8,9 +8,7 @@
     "start": "node ./server/server.js"
   },
   "keywords": [],
-  "activationCommands": {
-    "atom-workspace": "coeditor:toggle"
-  },
+
   "repository": "https://github.com/atom/coeditor",
   "license": "MIT",
   "engines": {
