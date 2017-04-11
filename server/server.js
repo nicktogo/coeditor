@@ -39,13 +39,24 @@ function startServer() {
             console.log(socket.getId());
             console.log(ws.getId());
             if (socket.getId() !== ws.getId()) {
-              socket.send(msg);
+              if (socket) {
+                socket.send(msg);
+              }
             }
           });
         }
       } else {
         // OT
         stream.push(JSON.parse(msg));
+      }
+    });
+
+    ws.on('close', (code, reason) => {
+      let index = allConnections[ws.sessionId].indexOf(ws);
+      if (index > -1) {
+        allConnections[ws.sessionId].splice(index, 1);
+        console.log('We just lost one connection: ' + ws.getId() + ' from ' + ws.sessionId);
+        console.log('Now ' + ws.sessionId + ' has ' + allConnections[ws.sessionId].length + ' connection(s)');
       }
     });
 
