@@ -9,9 +9,9 @@ A pair editing package for Atom.
 + Text selection synchronization (Problematic)
 
 ## TODO
-+ Customized configuration (Server address, random session id or given by user)
++ ~~Customized configuration (Server address, random session id or given by user)~~ DONE
 + Broadcast disconnections to other living Atom clients
-+ Check socket status before using
++ ~~Check socket status before using~~ DONE
 + Text selection background and cursor colors for different Atom clients
 + File operations synchronization (save, close)
 + Build cloud server
