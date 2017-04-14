@@ -53,7 +53,7 @@ function startServer() {
           type: 'close',
           clientId: ws.getId()
         };
-        broadcastMsg(msg, ws);
+        broadcastMsg(JSON.stringify(msg), ws);
       }
     });
 
