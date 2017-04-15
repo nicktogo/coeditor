@@ -50,7 +50,7 @@ function startServer() {
         // TODO send closed client id to other clients
         let msg = {
           a: 'meta',
-          type: 'close',
+          type: 'socketClose',
           clientId: ws.getId()
         };
         broadcastMsg(JSON.stringify(msg), ws);
