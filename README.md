@@ -10,7 +10,7 @@ A pair editing package for Atom.
 
 ## TODO
 + ~~Customized configuration (Server address, random session id or given by user)~~ DONE
-+ Broadcast disconnections to other living Atom clients
++ ~~Broadcast disconnections to other living Atom clients~~ DONE
 + ~~Check socket status before using~~ DONE
 + Text selection background and cursor colors for different Atom clients
 + File operations synchronization (save, close)
