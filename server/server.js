@@ -51,7 +51,7 @@ function startServer() {
         let msg = {
           a: 'meta',
           type: 'socketClose',
-          clientId: ws.getId()
+          clientId: ws.clientId
         };
         broadcastMsg(JSON.stringify(msg), ws);
       }
@@ -76,11 +76,13 @@ function broadcastMsg(msg, ws) {
 
 WebSocket.prototype.createSession = function(data) {
   let sessionId = data.sessionId;
+  let clientId  = data.clientId;
   if (typeof allConnections[sessionId] === 'undefined') {
     allConnections[sessionId] = [];
   }
   allConnections[sessionId].push(this);
   this.sessionId = sessionId;
+  this.clientId  = clientId;
   console.log('createSession: sessionId is: ' + sessionId);
   console.log('createSession: this.sessionId is: ' + this.sessionId);
 };
