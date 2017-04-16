@@ -6,14 +6,15 @@ A pair editing package for Atom.
 
 ## Features
 + Non-conflict collaborative text editing
-+ Text selection synchronization (Problematic)
++ Text selection synchronization
 
 ## TODO
 + ~~Customized configuration (Server address, random session id or given by user)~~ DONE
 + ~~Broadcast disconnections to other living Atom clients~~ DONE
 + ~~Check socket status before using~~ DONE
-+ Text selection background and cursor colors for different Atom clients
-+ File operations synchronization (save, close)
++ Broadcast server close to each Atom clients, and disconnect all clients
++ Text selection background and cursor colors for different Atom clients ?
++ File operations synchronization (save -- DONE, but limited, close)
 + Build cloud server
 
 ## Tentative
@@ -40,4 +41,4 @@ _prerequisites: node.js (v>=6.10.1)_
   - open existing or new file
   - toggle coeditor, `ctrl + shift + p` then type `toggle`, hit `coeditor: toggle`
   - check your Server console
-  - (Buggy) disconnect, `ctrl + shift + p` then type `disconnect`, hit `coeditor: disconnect`
+  - disconnect, `ctrl + shift + p` then type `disconnect`, hit `coeditor: disconnect`
