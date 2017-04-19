@@ -12,7 +12,7 @@ A pair editing package for Atom.
 + ~~Customized configuration (Server address, random session id or given by user)~~ DONE
 + ~~Broadcast disconnections to other living Atom clients~~ DONE
 + ~~Check socket status before using~~ DONE
-+ Broadcast server close to each Atom clients, and disconnect all clients
++ ~~Broadcast server close to each Atom clients, and disconnect all clients~~ DONE
 + Text selection background and cursor colors for different Atom clients ?
 + File operations synchronization (save -- DONE, but limited, don't work for new file, close)
 + Build cloud server
