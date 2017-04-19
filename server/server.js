@@ -61,6 +61,12 @@ function startServer() {
     console.log('Got one connection...');
   });
 
+  process.on('SIGINT', () => {
+    wss.close( () => {
+      process.exit();
+    });
+  });
+
 };
 
 function broadcastMsg(msg, ws) {
