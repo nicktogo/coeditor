@@ -42,12 +42,16 @@ function startServer() {
     });
 
     ws.on('close', (code, reason) => {
+      console.log(code + ' ' + reason);
+      // socket client closed due to server closed, do not broadcast
+      if (code === 1006) {
+        return;
+      }
       let index = allConnections[ws.sessionId].indexOf(ws);
       if (index > -1) {
         allConnections[ws.sessionId].splice(index, 1);
         console.log('We just lost one connection: ' + ws.getId() + ' from ' + ws.sessionId);
         console.log('Now ' + ws.sessionId + ' has ' + allConnections[ws.sessionId].length + ' connection(s)');
-        // TODO send closed client id to other clients
         let msg = {
           a: 'meta',
           type: 'socketClose',
