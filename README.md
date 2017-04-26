@@ -6,19 +6,25 @@ A pair editing package for Atom.
 
 ## Features
 + Non-conflict collaborative text editing
-+ Text selection synchronization
++ Text highlight synchronization
++ Collaborative awareness
 
 ## TODO
 + ~~Customized configuration (Server address, random session id or given by user)~~ DONE
 + ~~Broadcast disconnections to other living Atom clients~~ DONE
 + ~~Check socket status before using~~ DONE
 + ~~Broadcast server close to each Atom clients, and disconnect all clients~~ DONE
-+ Text selection background and cursor colors for different Atom clients ?
-+ File operations synchronization (save -- DONE, but limited, don't work for new file, close)
++ ~~Text selection background and cursor colors for different Atom clients ?~~ DONE
++ Settings view
++ Working folder files synchronization
++ File operations synchronization
+  - save -- DONE, but limited, don't work for new file which do not have path
+  - close
 + Build cloud server
++ Heartbeat between client and server
 
 ## Tentative
-+ Working folder files synchronization
++ ~~Working folder files synchronization~~ MOVED TO TODO list
 + Server uses in-memory storage when running, so no file content will be stored in server when it is shutdown, might change to MongoDB
 
 ## Usage
@@ -32,13 +38,15 @@ _prerequisites: node.js (v>=6.10.1)_
   - `npm start`
 
 + Run package in Atom
-  - open `coeditor` folder in Atom
-  - change `address` in `coeditor.js` and save
+  - ~~open `coeditor` folder in Atom~~
+  - ~~change `address` in `coeditor.js` and save~~
+  - client can now set server address when toggling package
   - link package to Atom
     - `cd coeditor`
     - `apm link`
   - reload Atom, `ctrl + shift + F5`
-  - open existing or new file
+  - open an existing or new file
   - toggle coeditor, `ctrl + shift + p` then type `toggle`, hit `coeditor: toggle`
-  - check your Server console
+  - input server address, session id and client id
+  - check your server console
   - disconnect, `ctrl + shift + p` then type `disconnect`, hit `coeditor: disconnect`
