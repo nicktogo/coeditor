@@ -14,7 +14,8 @@ A pair editing package for Atom.
 + ~~Broadcast disconnections to other living Atom clients~~ DONE
 + ~~Check socket status before using~~ DONE
 + ~~Broadcast server close to each Atom clients, and disconnect all clients~~ DONE
-+ ~~Text selection background and cursor colors for different Atom clients ?~~ DONE
++ ~~Text selection background and cursor colors for different Atom clients ?~~ DONE  
++ Syntax Synchronization  
 + Settings view
 + Working folder files synchronization
 + File operations synchronization
