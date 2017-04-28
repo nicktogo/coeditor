@@ -8,6 +8,7 @@ A pair editing package for Atom.
 + Non-conflict collaborative text editing
 + Text highlight synchronization
 + Collaborative awareness
++ Project sync
 
 ## TODO
 + ~~Customized configuration (Server address, random session id or given by user)~~ DONE
@@ -16,7 +17,7 @@ A pair editing package for Atom.
 + ~~Broadcast server close to each Atom clients, and disconnect all clients~~ DONE
 + ~~Text selection background and cursor colors for different Atom clients ?~~ DONE
 + Settings view
-+ Working folder files synchronization
++ ~~Working folder files synchronization~~ DONE
 + File operations synchronization
   - save -- DONE, but limited, don't work for new file which do not have path
   - close
