@@ -17,7 +17,7 @@ A pair editing package for Atom.
 + ~~Broadcast server close to each Atom clients, and disconnect all clients~~ DONE
 + ~~Text selection background and cursor colors for different Atom clients ?~~ DONE  
 + Syntax Synchronization  
-+ Settings view
++ ~~Settings view~~ DONE
 + ~~Working folder files synchronization~~ DONE
 + File operations synchronization
   - save -- DONE, but limited, don't work for new file which do not have path
