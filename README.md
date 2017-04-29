@@ -9,6 +9,7 @@ A pair editing package for Atom.
 + Text highlight synchronization
 + Collaborative awareness
 + Project sync
++ Grammar sync
 
 ## TODO
 + ~~Customized configuration (Server address, random session id or given by user)~~ DONE
@@ -16,21 +17,21 @@ A pair editing package for Atom.
 + ~~Check socket status before using~~ DONE
 + ~~Broadcast server close to each Atom clients, and disconnect all clients~~ DONE
 + ~~Text selection background and cursor colors for different Atom clients ?~~ DONE  
-+ Syntax Synchronization  
++ Suggestions Synchronization NO API
 + ~~Settings view~~ DONE
 + ~~Working folder files synchronization~~ DONE
 + File operations synchronization
-  - save -- DONE, but limited, don't work for new file which do not have path
+  - save -- DONE, but limited, don't work for new file which does not have path
   - close
-+ Build cloud server
 + Heartbeat between client and server
++ Build cloud server
 
 ## Tentative
 + ~~Working folder files synchronization~~ MOVED TO TODO list
 + Server uses in-memory storage when running, so no file content will be stored in server when it is shutdown, might change to MongoDB
 
 ## Usage
-_prerequisites: node.js (v>=6.10.1)_
+_prerequisite: node.js (v>=6.10.1)_
 
 + Install dependencies
   - `cd coeditor`
