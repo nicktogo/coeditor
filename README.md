@@ -24,6 +24,7 @@ A pair editing package for Atom.
 + ~~File operations synchronization~~ DONE
   - ~~save -- DONE, but limited, don't work for new file which does not have path~~
   - ~~close~~
++ Tab sync
 + Heartbeat between client and server
 + Build cloud server
 
