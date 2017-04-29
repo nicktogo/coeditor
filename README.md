@@ -10,6 +10,7 @@ A pair editing package for Atom.
 + Collaborative awareness
 + Project sync
 + Grammar sync
++ Project's files saving and closing sync
 
 ## TODO
 + ~~Customized configuration (Server address, random session id or given by user)~~ DONE
@@ -20,9 +21,9 @@ A pair editing package for Atom.
 + Suggestions Synchronization NO API
 + ~~Settings view~~ DONE
 + ~~Working folder files synchronization~~ DONE
-+ File operations synchronization
-  - save -- DONE, but limited, don't work for new file which does not have path
-  - close
++ ~~File operations synchronization~~ DONE
+  - ~~save -- DONE, but limited, don't work for new file which does not have path~~
+  - ~~close~~
 + Heartbeat between client and server
 + Build cloud server
 
