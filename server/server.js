@@ -74,7 +74,7 @@ function broadcastMsg(msg, ws) {
   let sockets = allConnections[ws.sessionId];
   sockets.forEach( (socket) => {
     if (socket && (socket.getId() !== ws.getId())) {
-      console.log('Broadcasting msg to ' + socket.getId());
+      console.log('Broadcasting msg to ' + socket.clientId);
       socket.send(msg);
     }
   });
