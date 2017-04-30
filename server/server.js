@@ -6,6 +6,7 @@ var otText = require('ot-text');
 ShareDB.types.register(otText.type);
 
 allConnections = [];
+tabs = []; // array of opening tabs, denoted by uri
 
 var backend = new ShareDB();
 startServer();
@@ -28,8 +29,23 @@ function startServer() {
         if (data.type === 'init') {
           // a new session
           ws.createSession(data);
+          ws.send(JSON.stringify(tabs));
         } else {
-          // meta changes: cursor position, text selection
+          // tab changes: add or remove tab
+          if (data.type === 'removeTab') {
+            let index = tabs.indexOf(data.uri);
+            if (index > -1) {
+              tabs.splice(index, 1);
+            }
+            console.log(data.uri + 'removed.');
+          } else if (data.type === 'addTab') {
+            tabs.push(data.uri);
+            console.log(data.uri + 'added');
+          }
+          console.log('current tabs: ');
+          console.log(tabs);
+          console.log('\n');
+          // other meta changes: cursor position, text selection
           // and open/save/close file
           broadcastMsg(msg, ws);
         }
