@@ -18,15 +18,11 @@ function startServer() {
   });
   wss.on('connection', function(ws) {
     var stream = new WebSocketStream(ws);
-    // stream.on('data', function(chunk) {
-    //   console.log(typeof chunk);
-    //   console.log(chunk);
-    // })
 
     ws.on('message', function(msg) {
       let data = JSON.parse(msg);
-      console.log(data);
       if (data.a === 'meta') {
+        console.log(data);
         if (data.type === 'init') {
           // a new session
           ws.createSession(data);
