@@ -39,6 +39,9 @@ function startServer() {
             }
             console.log(data.uri + 'removed.');
           } else if (data.type === 'addTab') {
+            if (tabs.indexOf(data.uri) != -1) {
+              return;
+            }
             tabs.push(data.uri);
             console.log(data.uri + 'added');
           }
