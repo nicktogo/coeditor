@@ -32,22 +32,28 @@ function startServer() {
           ws.send(JSON.stringify(tabs));
         } else {
           // tab changes: add or remove tab
-          if (data.type === 'removeTab') {
-            let index = tabs.indexOf(data.uri);
+          let logTabs = false;
+          if (data.type === 'editorClosed') {
+            let index = tabs.indexOf(data.path);
             if (index > -1) {
               tabs.splice(index, 1);
             }
-            console.log(data.uri + 'removed.');
+            logTabs = true;
+            console.log(data.path + ' removed.');
           } else if (data.type === 'addTab') {
             if (tabs.indexOf(data.uri) != -1) {
               return;
             }
             tabs.push(data.uri);
-            console.log(data.uri + 'added');
+            logTabs = true;
+            console.log(data.uri + ' added');
           }
-          console.log('current tabs: ');
-          console.log(tabs);
-          console.log('\n');
+
+          if (logTabs) {
+            console.log('current tabs: ');
+            console.log(tabs);
+            console.log('\n');
+          }
           // other meta changes: cursor position, text selection
           // and open/save/close file
           broadcastMsg(msg, ws);
