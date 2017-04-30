@@ -60,11 +60,8 @@ function startServer() {
         }
       } else {
         // OT
-        console.log('Received OT data:');
-        console.log('Action is ' + data.a);
-        console.log('Collection is ' + data.c);
-        console.log('Document is ' + data.d);
-        console.log('\n');  stream.push(JSON.parse(msg));
+        console.log(data);  
+        stream.push(JSON.parse(msg));
       }
     });
 
