@@ -22,6 +22,7 @@ function startServer() {
     ws.on('message', function(msg) {
       let data = JSON.parse(msg);
       if (data.a === 'meta') {
+        console.log('Received meta data:\n');
         console.log(data);
         if (data.type === 'init') {
           // a new session
@@ -72,9 +73,8 @@ function startServer() {
 function broadcastMsg(msg, ws) {
   let sockets = allConnections[ws.sessionId];
   sockets.forEach( (socket) => {
-    console.log(socket.getId());
-    console.log(ws.getId());
     if (socket && (socket.getId() !== ws.getId())) {
+      console.log('Broadcasting msg to ' + socket.getId());
       socket.send(msg);
     }
   });
@@ -89,8 +89,7 @@ WebSocket.prototype.createSession = function(data) {
   allConnections[sessionId].push(this);
   this.sessionId = sessionId;
   this.clientId  = clientId;
-  console.log('createSession: sessionId is: ' + sessionId);
-  console.log('createSession: this.sessionId is: ' + this.sessionId);
+  console.log('Session ' + sessionId + ' adds ' + clientId);
 };
 
 WebSocket.prototype.getId = function() {
