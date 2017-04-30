@@ -22,8 +22,9 @@ function startServer() {
     ws.on('message', function(msg) {
       let data = JSON.parse(msg);
       if (data.a === 'meta') {
-        console.log('Received meta data:\n');
+        console.log('Received meta data:');
         console.log(data);
+        console.log('\n');
         if (data.type === 'init') {
           // a new session
           ws.createSession(data);
@@ -34,12 +35,15 @@ function startServer() {
         }
       } else {
         // OT
-        stream.push(JSON.parse(msg));
+        console.log('Received OT data:');
+        console.log('Action is ' + data.a);
+        console.log('Collection is ' + data.c);
+        console.log('Document is ' + data.d);
+        console.log('\n');  stream.push(JSON.parse(msg));
       }
     });
 
     ws.on('close', (code, reason) => {
-      console.log(code + ' ' + reason);
       // socket client closed due to server closed, do not broadcast
       if (code === 1006) {
         return;
@@ -47,8 +51,9 @@ function startServer() {
       let index = allConnections[ws.sessionId].indexOf(ws);
       if (index > -1) {
         allConnections[ws.sessionId].splice(index, 1);
-        console.log('We just lost one connection: ' + ws.getId() + ' from ' + ws.sessionId);
+        console.log('We just lost one connection: ' + ws.clientId + ' from ' + ws.sessionId);
         console.log('Now ' + ws.sessionId + ' has ' + allConnections[ws.sessionId].length + ' connection(s)');
+        console.log('\n');
         let msg = {
           a: 'meta',
           type: 'socketClose',
@@ -59,7 +64,7 @@ function startServer() {
     });
 
     backend.listen(stream);
-    console.log('Got one connection...');
+    console.log('Got one connection...\n');
   });
 
   process.on('SIGINT', () => {
@@ -74,7 +79,7 @@ function broadcastMsg(msg, ws) {
   let sockets = allConnections[ws.sessionId];
   sockets.forEach( (socket) => {
     if (socket && (socket.getId() !== ws.getId())) {
-      console.log('Broadcasting msg to ' + socket.clientId);
+      console.log('Broadcasting msg to ' + socket.clientId + '\n');
       socket.send(msg);
     }
   });
@@ -89,7 +94,7 @@ WebSocket.prototype.createSession = function(data) {
   allConnections[sessionId].push(this);
   this.sessionId = sessionId;
   this.clientId  = clientId;
-  console.log('Session ' + sessionId + ' adds ' + clientId);
+  console.log('Session ' + sessionId + ' adds ' + clientId + '\n');
 };
 
 WebSocket.prototype.getId = function() {
