@@ -9,6 +9,14 @@ allConnections = [];
 tabs = []; // array of opening tabs, denoted by uri
 
 var backend = new ShareDB();
+backend.use('op', (request, callback) => {
+  console.log('action OP');
+  callback();
+});
+backend.use('after submit', (request, callback) => {
+  console.log('action after submit');
+  callback();
+});
 startServer();
 
 function startServer() {
@@ -102,7 +110,9 @@ function broadcastMsg(msg, ws) {
   sockets.forEach( (socket) => {
     if (socket && (socket.getId() !== ws.getId())) {
       console.log('Broadcasting msg to ' + socket.clientId + '\n');
-      socket.send(msg);
+      setTimeout( () => {
+        socket.send(msg);
+      }, 0);
     }
   });
 }
