@@ -6,16 +6,23 @@ var otText = require('ot-text');
 ShareDB.types.register(otText.type);
 
 allConnections = [];
+// FIXME tabs should belong to connection, not a global variable
 tabs = []; // array of opening tabs, denoted by uri
+// FIXME
+cursorDataMap = new Map();
 
 var backend = new ShareDB();
 backend.use('op', (request, callback) => {
-  console.log('action OP');
   callback();
-});
-backend.use('after submit', (request, callback) => {
-  console.log('action after submit');
-  callback();
+  setTimeout( () => {
+    let ws = request.agent.stream.ws;
+    console.log('Broadcasting ' + ws.clientId + '\'s cursor events');
+    let msg = cursorDataMap.get(ws.getId());
+    if (typeof msg !== 'undefined') {
+      broadcastMsg(msg, ws);
+      cursorDataMap.delete(ws.getId());
+    }
+  }, 0);
 });
 startServer();
 
@@ -55,6 +62,9 @@ function startServer() {
             tabs.push(data.uri);
             logTabs = true;
             console.log(data.uri + ' added');
+          } else if (data.type === 'cursorMoved') {
+            cursorDataMap.set(ws.getId(), msg);
+            return;
           }
 
           if (logTabs) {
