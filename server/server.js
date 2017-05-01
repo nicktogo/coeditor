@@ -60,7 +60,7 @@ function startServer() {
         }
       } else {
         // OT
-        console.log(data);  
+        console.log(data);
         stream.push(JSON.parse(msg));
       }
     });
