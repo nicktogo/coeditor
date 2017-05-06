@@ -126,7 +126,7 @@ function startServer() {
 function broadcastMsg(msg, ws) {
   let sockets = allSessions[ws.sessionId].wss;
   sockets.forEach( (socket) => {
-    if (socket && (socket.getId() !== ws.getId())) {
+    if (socket.readyState === WebSocket.OPEN && (socket.getId() !== ws.getId())) {
       console.log('Broadcasting msg to ' + socket.clientId + '\n');
       console.log(msg);
       console.log('\n');
