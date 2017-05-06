@@ -15,7 +15,7 @@ Yet Another Pair Programming Package for Atom.
 
 ## Known issue
 + If clients use different types for line ending (i.e. CRLF or LF) with each other, this package will cause files end up with inconsistent content.
-**MAKE SURE ALL CLIENTS USE THE SAME TYPE FOR LINE ENDING AND SET TYPE IN PACKAGE'S SETTING VIEW! (EITHER CRLF OR LF WILL DO)** 
+**MAKE SURE ALL CLIENTS USE THE SAME TYPE FOR LINE ENDING AND SET TYPE IN PACKAGE'S SETTING VIEW! (EITHER CRLF OR LF WILL DO)**
 
 ## TODO
 + ~~Customized configuration (Server address, random session id or given by user)~~ DONE
@@ -48,7 +48,7 @@ _prerequisite: node.js (v>=6.10.1)_
 + Start Server
   - `npm start`
 
-+ Run package in Atom
++ Toggle package in Atom
   - ~~open `coeditor` folder in Atom~~
   - ~~change `address` in `coeditor.js` and save~~
   - ~~client can now set server address when toggling package~~
@@ -63,6 +63,6 @@ _prerequisite: node.js (v>=6.10.1)_
   - reload Atom, `ctrl + shift + F5`
   - open an existing or new file
   - toggle coeditor, `ctrl + shift + p` then type `toggle`, hit `coeditor: toggle`
-  - input server address, session id and client id
+  - input ~~server address,~~ session id ~~and client id~~
   - check your server console
   - disconnect, `ctrl + shift + p` then type `disconnect`, hit `coeditor: disconnect`
