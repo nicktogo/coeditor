@@ -28,6 +28,7 @@ Yet Another Pair Programming Package for Atom.
 + ~~Tab sync~~
 + Heartbeat between client and server
 + Build cloud server
++ Write spec
 
 ## Tentative
 + ~~Working folder files synchronization~~ MOVED TO TODO list

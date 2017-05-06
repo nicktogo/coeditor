@@ -1,17 +1,17 @@
 {
   "name": "coeditor",
   "main": "./lib/coeditor",
-  "version": "0.0.0",
-  "description": "A short description of your package",
+  "version": "0.1.0",
+  "description": "Yet Another Pair Programming Package for Atom.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./server/server.js"
   },
-  "keywords": [],
+  "keywords": ["collaborative-editing", "operational-transformation", "pair-programming", "realtime"],
   "activationCommands": {
     "atom-workspace": "coeditor:toggle"
   },
-  "repository": "https://github.com/atom/coeditor",
+  "repository": "https://github.com/nicktogo/coeditor",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
