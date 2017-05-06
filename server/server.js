@@ -5,9 +5,30 @@ var otText = require('ot-text');
 
 ShareDB.types.register(otText.type);
 
-allConnections = [];
+allSessions = [];
+// FIXME tabs should belong to connection, not a global variable
+// tabs = []; // array of opening tabs, denoted by uri
+// FIXME
+// cursorDataMap = new Map();
 
 var backend = new ShareDB();
+backend.use('op', (request, callback) => {
+  callback();
+  setTimeout( () => {
+    let ws = request.agent.stream.ws;
+    let cursors = allSessions[ws.sessionId].cursors;
+    if (typeof cursors !== 'undefined') {
+      console.log('Broadcasting ' + ws.clientId + '\'s cursors');
+      for (let path in cursors) {
+        if (cursors.hasOwnProperty(path) && JSON.parse(cursors[path]).clientId === ws.clientId) {
+          console.log(path);
+          broadcastMsg(cursors[path], ws);
+        }
+      }
+      cursors = {};
+    }
+  }, 0);
+});
 startServer();
 
 function startServer() {
@@ -26,20 +47,47 @@ function startServer() {
         console.log(data);
         console.log('\n');
         if (data.type === 'init') {
-          // a new session
-          ws.createSession(data);
+          // create or join a session
+          ws.createOrJoinSession(data);
+          ws.send(JSON.stringify(allSessions[ws.sessionId].tabs));
         } else {
-          // meta changes: cursor position, text selection
+          // tab changes: add or remove tab
+          let logTabs = false;
+          if (data.type === 'editorClosed') {
+            let tabs = allSessions[ws.sessionId].tabs;
+            let index = tabs.indexOf(data.path);
+            if (index > -1) {
+              tabs.splice(index, 1);
+              console.log(data.path + ' removed.');
+              logTabs = true;
+            }
+          } else if (data.type === 'addTab') {
+            let tabs = allSessions[ws.sessionId].tabs;
+            if (tabs.indexOf(data.uri) != -1) {
+              return;
+            }
+            tabs.push(data.uri);
+            logTabs = true;
+            console.log(data.uri + ' added');
+          } else if (data.type === 'cursorMoved') {
+            let cursors = allSessions[ws.sessionId].cursors;
+            cursors[data.path] = msg;
+            return;
+          }
+
+          if (logTabs) {
+            console.log('current tabs: ');
+            console.log(allSessions[ws.sessionId].tabs);
+            console.log('\n');
+          }
+          // other meta changes: cursor position, text selection
           // and open/save/close file
           broadcastMsg(msg, ws);
         }
       } else {
         // OT
-        console.log('Received OT data:');
-        console.log('Action is ' + data.a);
-        console.log('Collection is ' + data.c);
-        console.log('Document is ' + data.d);
-        console.log('\n');  stream.push(JSON.parse(msg));
+        console.log(data);
+        stream.push(JSON.parse(msg));
       }
     });
 
@@ -48,11 +96,11 @@ function startServer() {
       if (code === 1006) {
         return;
       }
-      let index = allConnections[ws.sessionId].indexOf(ws);
+      let index = allSessions[ws.sessionId].wss.indexOf(ws);
       if (index > -1) {
-        allConnections[ws.sessionId].splice(index, 1);
+        allSessions[ws.sessionId].wss.splice(index, 1);
         console.log('We just lost one connection: ' + ws.clientId + ' from ' + ws.sessionId);
-        console.log('Now ' + ws.sessionId + ' has ' + allConnections[ws.sessionId].length + ' connection(s)');
+        console.log('Now ' + ws.sessionId + ' has ' + allSessions[ws.sessionId].wss.length + ' connection(s)');
         console.log('\n');
         let msg = {
           a: 'meta',
@@ -76,24 +124,32 @@ function startServer() {
 };
 
 function broadcastMsg(msg, ws) {
-  let sockets = allConnections[ws.sessionId];
+  let sockets = allSessions[ws.sessionId].wss;
   sockets.forEach( (socket) => {
     if (socket && (socket.getId() !== ws.getId())) {
       console.log('Broadcasting msg to ' + socket.clientId + '\n');
-      socket.send(msg);
+      console.log(msg);
+      console.log('\n');
+      setTimeout( () => {
+        socket.send(msg);
+      }, 0);
     }
   });
 }
 
-WebSocket.prototype.createSession = function(data) {
+WebSocket.prototype.createOrJoinSession = function(data) {
   let sessionId = data.sessionId;
   let clientId  = data.clientId;
-  if (typeof allConnections[sessionId] === 'undefined') {
-    allConnections[sessionId] = [];
-  }
-  allConnections[sessionId].push(this);
   this.sessionId = sessionId;
   this.clientId  = clientId;
+  if (typeof allSessions[sessionId] === 'undefined') {
+    let session = {};
+    session.wss = [];
+    session.tabs = [];
+    session.cursors = {};
+    allSessions[sessionId] = session;
+  }
+  allSessions[sessionId].wss.push(this);
   console.log('Session ' + sessionId + ' adds ' + clientId + '\n');
 };
 
