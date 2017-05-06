@@ -1,6 +1,6 @@
-# coeditor package
+# Coeditor
 
-A pair editing package for Atom.
+Yet Another Pair Programming Package for Atom.
 
 ![A screenshot of your package](https://f.cloud.github.com/assets/69169/2290250/c35d867a-a017-11e3-86be-cd7c5bf3ff9b.gif)
 
@@ -9,7 +9,8 @@ A pair editing package for Atom.
 + Text highlight synchronization
 + Collaborative awareness
 + Project sync
-+ Grammar sync
++ File grammar sync
++ Active tab sync
 + Project's files saving and closing sync
 
 ## TODO
@@ -24,7 +25,7 @@ A pair editing package for Atom.
 + ~~File operations synchronization~~ DONE
   - ~~save -- DONE, but limited, don't work for new file which does not have path~~
   - ~~close~~
-+ Tab sync
++ ~~Tab sync~~
 + Heartbeat between client and server
 + Build cloud server
 
