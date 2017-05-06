@@ -14,8 +14,8 @@ Yet Another Pair Programming Package for Atom.
 + Project's files saving and closing sync
 
 ## Known issue
-+ If clients use different types for line break (i.e. CRLF or LF) with each other, this package will cause files end up with different content.
-**MAKE SURE ALL CLIENTS USE THE SAME TYPE FOR LINE BREAK! (EITHER CRLF OR LF WILL DO)**  
++ If clients use different types for line ending (i.e. CRLF or LF) with each other, this package will cause files end up with inconsistent content.
+**MAKE SURE ALL CLIENTS USE THE SAME TYPE FOR LINE ENDING AND SET TYPE IN PACKAGE'S SETTING VIEW! (EITHER CRLF OR LF WILL DO)** 
 
 ## TODO
 + ~~Customized configuration (Server address, random session id or given by user)~~ DONE
@@ -53,6 +53,10 @@ _prerequisite: node.js (v>=6.10.1)_
   - ~~change `address` in `coeditor.js` and save~~
   - ~~client can now set server address when toggling package~~
   - modify settings in the package's settings view firstly
+    - server address
+    - client id which will show in indicator
+    - indicator background color
+    - line ending
   - link package to Atom
     - `cd coeditor`
     - `apm link`
