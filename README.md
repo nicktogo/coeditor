@@ -47,7 +47,8 @@ _prerequisite: node.js (v>=6.10.1)_
 + Run package in Atom
   - ~~open `coeditor` folder in Atom~~
   - ~~change `address` in `coeditor.js` and save~~
-  - client can now set server address when toggling package
+  - ~~client can now set server address when toggling package~~
+  - modify settings in the package's settings view firstly
   - link package to Atom
     - `cd coeditor`
     - `apm link`
