@@ -13,6 +13,10 @@ Yet Another Pair Programming Package for Atom.
 + Active tab sync
 + Project's files saving and closing sync
 
+## Known issue
++ If clients use different types for line break (i.e. CRLF or LF) with each other, this package will cause files end up with different content.
+**MAKE SURE ALL CLIENTS USE THE SAME TYPE FOR LINE BREAK! (EITHER CRLF OR LF WILL DO)**  
+
 ## TODO
 + ~~Customized configuration (Server address, random session id or given by user)~~ DONE
 + ~~Broadcast disconnections to other living Atom clients~~ DONE
