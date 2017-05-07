@@ -55,16 +55,16 @@ _prerequisite: node.js (v>=6.10.1)_
   - ~~open `coeditor` folder in Atom~~
   - ~~change `address` in `coeditor.js` and save~~
   - ~~client can now set server address when toggling package~~
+  - link package to Atom
+    - `cd coeditor`
+    - `apm link`
+  - reload Atom, `ctrl + shift + F5`
   - modify settings in the package's settings view firstly
     - server address
     - client id which will show in indicator
     - indicator background color
     - line ending
-  - link package to Atom
-    - `cd coeditor`
-    - `apm link`
-  - reload Atom, `ctrl + shift + F5`
-  - open an existing or new file
+  - open project folder in Atom
   - toggle coeditor, `ctrl + shift + p` then type `toggle`, hit `coeditor: toggle`
   - input ~~server address,~~ session id ~~and client id~~
   - check your server console
