@@ -69,3 +69,8 @@ _prerequisite: node.js (v>=6.10.1)_
   - input ~~server address,~~ session id ~~and client id~~
   - check your server console
   - disconnect, `ctrl + shift + p` then type `disconnect`, hit `coeditor: disconnect`
+
+## Thanks
++ Dr. Fan Hongfei
++ [ShareDB](https://github.com/share/sharedb)
++ [ws](https://github.com/websockets/ws)
