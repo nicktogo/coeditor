@@ -2,9 +2,10 @@
 
 Yet Another Pair Programming Package for Atom.
 
-![demo](demo.gif)
+## Demo
+_Click to view high quality video on YouTube_
 
-![A screenshot of your package](https://f.cloud.github.com/assets/69169/2290250/c35d867a-a017-11e3-86be-cd7c5bf3ff9b.gif)
+[![demo](demo.gif)](https://youtu.be/EOCw2HfRxZE)
 
 ## Features
 + Non-conflict collaborative text editing
