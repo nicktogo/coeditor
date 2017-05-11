@@ -6,10 +6,6 @@ var otText = require('ot-text');
 ShareDB.types.register(otText.type);
 
 allSessions = [];
-// FIXME tabs should belong to connection, not a global variable
-// tabs = []; // array of opening tabs, denoted by uri
-// FIXME
-// cursorDataMap = new Map();
 
 var backend = new ShareDB();
 backend.use('op', (request, callback) => {
