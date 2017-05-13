@@ -7,7 +7,12 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./server/server.js"
   },
-  "keywords": ["collaborative-editing", "operational-transformation", "pair-programming", "realtime"],
+  "keywords": [
+    "collaborative-editing",
+    "operational-transformation",
+    "pair-programming",
+    "realtime"
+  ],
   "activationCommands": {
     "atom-workspace": "coeditor:toggle"
   },
@@ -19,6 +24,7 @@
   "dependencies": {
     "ot-text": "^1.0.1",
     "sharedb": "1.0.0-beta.7",
+    "websocket-push-stream": "^0.1.0",
     "ws": "^2.2.2"
   }
 }

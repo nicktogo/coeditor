@@ -1,6 +1,6 @@
 var ShareDB = require('sharedb');
 var WebSocket = require('ws');
-var WebSocketStream = require('./WebSocketStream');
+var WebSocketStream = require('websocket-push-stream');
 var otText = require('ot-text');
 
 ShareDB.types.register(otText.type);
