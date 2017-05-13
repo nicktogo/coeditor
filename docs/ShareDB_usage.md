@@ -107,6 +107,20 @@ ShareDB 的客户端可以在浏览器网页和 Node 项目中使用。嵌入浏
       // 具体参考 https://github.com/ottypes/docs
       console.log(op);
     });
+
+    // 通过 doc 提交文档改动
+    // 在获得文档改动数据后，需要将改动数据转换成 OT 类型所对应的格式并通过 doc.submitOp 提交
+    // 具体参考 https://github.com/ottypes/docs
+    // 表示跳过 1 个字符，插入 a
+    let op1 = [1, 'a'];
+    // 提交改动到 ShareDB 服务端
+    doc.submitOp(op1);
+
+    // 表示跳过 2 个字符，删除 1 个长度的字符
+    let op2 = [2, {d: 1}];
+    // 提交改动到 ShareDB 服务端
+    doc.submitOp(op2);
+
   });
 
   ```
