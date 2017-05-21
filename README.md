@@ -67,6 +67,7 @@ _prerequisite: node.js (v>=6.10.1)_
   - ~~save -- DONE, but limited, don't work for new file which does not have path~~
   - ~~close~~
 + ~~Tab sync~~
++ add sync tab switcher (via command or configuration)
 + Heartbeat between client and server
 + Build cloud server
 + Write spec
