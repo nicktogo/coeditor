@@ -52,7 +52,7 @@ _prerequisite: node.js (v>=6.10.1)_
 
 ## Known issue
 + If clients use different types for line ending (i.e. CRLF or LF) with each other, this package will cause files end up with inconsistent content.
-**MAKE SURE ALL CLIENTS USE THE SAME TYPE FOR LINE ENDING AND SET TYPE IN PACKAGE'S SETTING VIEW! (EITHER CRLF OR LF WILL DO)**
+**MAKE SURE ALL CLIENTS USE THE SAME TYPE FOR LINE ENDING AND SET TYPE IN THIS PACKAGE'S SETTING VIEW! (EITHER CRLF OR LF WILL DO)**
 
 ## TODO
 + ~~Customized configuration (Server address, random session id or given by user)~~ DONE
