@@ -24,7 +24,9 @@
   // 这里使用普通文本类型 ot-text
   ShareDB.types.register(otText.type); // otText.type === 'text'
 
-  var backend = new ShareDB();
+  // 获得 backend 对象后还可以为其添加一些中间件代码，从而可以控制操作转发的过程
+  // 详细使用可以参考 ShareDB 的文档
+  var backend = new ShareDB();
 
   // 监听 9090 端口
   var wss = new WebSocket.Server({port: 9090}, () => {
