@@ -1,7 +1,7 @@
 {
   "name": "coeditor",
   "main": "./lib/coeditor",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Yet Another Pair Programming Package for Atom.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
