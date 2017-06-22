@@ -2,5 +2,5 @@
 * Every feature added
 * Every bug fixed
 
-## 0.2.3
+## 0.2.4
 * fixed [#3](https://github.com/nicktogo/coeditor/issues/3)
