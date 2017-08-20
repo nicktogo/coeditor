@@ -22,13 +22,6 @@ _prerequisite: node.js (v>=6.10.1)_
   - `npm start`
   - By default, the server will listen on port 9090
 + Toggle package in Atom
-  - ~~open `coeditor` folder in Atom~~
-  - ~~change `address` in `coeditor.js` and save~~
-  - ~~client can now set server address when toggling package~~
-  - ~~link package to Atom~~
-    - ~~`cd coeditor`~~
-    - ~~`apm link`~~
-  - ~~reload Atom, `ctrl + shift + F5`~~
   - install coeditor via Atom
   - modify settings in the package's settings view firstly
     - server address (with port)
@@ -37,7 +30,7 @@ _prerequisite: node.js (v>=6.10.1)_
     - line ending
   - open project folder in Atom
   - toggle coeditor, `ctrl + shift + p` then type `toggle`, hit `coeditor: toggle`
-  - input ~~server address,~~ session id ~~and client id~~
+  - input session id
   - check your server console
   - disconnect, `ctrl + shift + p` then type `disconnect`, hit `coeditor: disconnect`
 
@@ -49,6 +42,13 @@ _prerequisite: node.js (v>=6.10.1)_
 + File grammar sync
 + Active tab sync
 + Project's files saving and closing sync
+
+## Dependencies
+_Please refer to [package.json](/package.json) for detail._
++ ot-text
++ sharedb
++ websocket-push-stream
++ ws
 
 ## Known issue
 + If clients use different types for line ending (i.e. CRLF or LF) with each other, this package will cause files end up with inconsistent content.
