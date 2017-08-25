@@ -77,6 +77,6 @@ _Please refer to [package.json](/package.json) for detail._
 + Server uses in-memory storage when running, so no file content will be stored in server when it is shutdown, might change to MongoDB
 
 ## Thanks
-+ Dr. Fan Hongfei
++ [Dr. Fan Hongfei](http://sse.tongji.edu.cn/Data/View/3145)
 + [ShareDB](https://github.com/share/sharedb)
 + [ws](https://github.com/websockets/ws)
