@@ -53,6 +53,7 @@ _Please refer to [package.json](/package.json) for detail._
 ## Known issue
 + If clients use different types for line ending (i.e. CRLF or LF) with each other, this package will cause files end up with inconsistent content.
 **MAKE SURE ALL CLIENTS USE THE SAME TYPE FOR LINE ENDING AND SET TYPE IN THIS PACKAGE'S SETTING VIEW! (EITHER CRLF OR LF WILL DO)**
++ If you encounter any other problem, you are more than welcome to open a issue in the github repo, thanks for helping me to improve this project!
 
 ## TODO
 + ~~Customized configuration (Server address, random session id or given by user)~~ DONE
@@ -60,7 +61,6 @@ _Please refer to [package.json](/package.json) for detail._
 + ~~Check socket status before using~~ DONE
 + ~~Broadcast server close to each Atom clients, and disconnect all clients~~ DONE
 + ~~Text selection background and cursor colors for different Atom clients ?~~ DONE  
-+ Suggestions Synchronization NO API
 + ~~Settings view~~ DONE
 + ~~Working folder files synchronization~~ DONE
 + ~~File operations synchronization~~ DONE
@@ -71,6 +71,7 @@ _Please refer to [package.json](/package.json) for detail._
 + Heartbeat between client and server
 + Build cloud server
 + Write spec
++ Suggestions Synchronization NO API
 
 ## Tentative
 + ~~Working folder files synchronization~~ MOVED TO TODO list
